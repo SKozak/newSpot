@@ -18,5 +18,6 @@ public class NewsDTO {
     String country;
     String category;
     List<ArticleDTO> articles;
+    int totalResults;
 
 }

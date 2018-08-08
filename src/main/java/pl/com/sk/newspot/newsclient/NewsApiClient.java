@@ -8,14 +8,16 @@ import pl.com.sk.newspot.app.config.FeignDecoderConfig;
 import pl.com.sk.newspot.news.News;
 import pl.com.sk.newspot.source.SourceResponse;
 
-@FeignClient(name = "Country-service-client", url = "https://newsapi.org/v2",configuration = FeignDecoderConfig.class)
+@FeignClient(name = "Country-service-client", url = "https://newsapi.org/v2", configuration = FeignDecoderConfig.class)
 public interface NewsApiClient {
 
-    @RequestMapping(method = RequestMethod.GET,value = "top-headlines")
-    News getNewsByCountryAndCategory(@RequestParam("Country") String country, @RequestParam("category") String category);
+    @RequestMapping(method = RequestMethod.GET, value = "top-headlines")
+    News getNewsByCountryAndCategory(@RequestParam("Country") String country, @RequestParam("category") String category,
+                                     @RequestParam("page") Integer page, @RequestParam("pageSize") Integer pageSize);
 
-    @RequestMapping(method = RequestMethod.GET,value = "sources")
+    @RequestMapping(method = RequestMethod.GET, value = "sources")
     SourceResponse getSources();
 
 
 }
+

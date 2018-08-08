@@ -11,7 +11,7 @@ import java.util.List;
 
 
 @RequiredArgsConstructor
-@RequestMapping(value = "sources")
+@RequestMapping(value = "api/sources")
 @RestController
 public class SourceResource {
 
@@ -19,7 +19,7 @@ public class SourceResource {
     private SourceService sourceService;
 
     @ApiOperation(value = "Get all categories from sources")
-    @GetMapping
+    @GetMapping("categories")
     public List<String> getCategoriesFromSources(){
         return sourceService.getCategoriesFromSources();
     }
